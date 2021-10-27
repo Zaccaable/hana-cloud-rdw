@@ -1,0 +1,9 @@
+COLUMN TABLE "GEBREKEN" (
+    "gebrek_identificatie" NVARCHAR(10),
+    "ingangsdatum_gebrek" NVARCHAR(8),
+    "einddatum_gebrek" NVARCHAR(8),
+    "gebrek_paragraaf_nummer" INTEGER,
+    "gebrek_artikel_nummer" NVARCHAR(100),
+    "gebrek_omschrijving" NVARCHAR(5000),
+    PRIMARY KEY ("gebrek_identificatie", "ingangsdatum_gebrek")
+);

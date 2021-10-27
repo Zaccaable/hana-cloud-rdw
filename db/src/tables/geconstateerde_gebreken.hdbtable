@@ -1,0 +1,10 @@
+COLUMN TABLE "GECONSTATEERDE_GEBREKEN" (
+    "kenteken" NVARCHAR(8),
+    "soort_erkennings_keuringsinstantie" NVARCHAR(2),
+    "melddatum" NVARCHAR(8),
+    "meldtijd" NVARCHAR(4),
+    "gebrek_identificatie" NVARCHAR(10),
+    "soort_erkennings_keuringsinstantie_omschrijving" NVARCHAR(100),
+    "aantal_gebreken" INTEGER,
+    PRIMARY KEY ("kenteken", "melddatum")
+);
