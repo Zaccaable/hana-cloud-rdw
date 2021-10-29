@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="gebreken" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="gebreken.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GEBREKEN">
+    <resourceUri>GEBREKEN</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="gebreken">
+    <viewAttributes>
+      <viewAttribute id="gebrek_identificatie"/>
+      <viewAttribute id="ingangsdatum_gebrek"/>
+      <viewAttribute id="einddatum_gebrek"/>
+      <viewAttribute id="gebrek_paragraaf_nummer"/>
+      <viewAttribute id="gebrek_artikel_nummer"/>
+      <viewAttribute id="gebrek_omschrijving"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GEBREKEN"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="calc_columns">
+    <viewAttributes>
+      <viewAttribute id="gebrek_identificatie"/>
+      <viewAttribute id="ingangsdatum_gebrek"/>
+      <viewAttribute id="einddatum_gebrek"/>
+      <viewAttribute id="gebrek_paragraaf_nummer"/>
+      <viewAttribute id="gebrek_artikel_nummer"/>
+      <viewAttribute id="gebrek_omschrijving"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="valid_from" datatype="DATE" expressionLanguage="SQL">
+        <formula>&quot;ingangsdatum_gebrek&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="valid_to" datatype="DATE" expressionLanguage="SQL">
+        <formula>ifnull(&quot;einddatum_gebrek&quot;, '9999-12-31')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="gebreken"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="calc_columns">
+  <attributes>
+    <attribute id="gebrek_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="gebrek_identificatie"/>
+      <keyMapping columnObjectName="calc_columns" columnName="gebrek_identificatie"/>
+    </attribute>
+    <attribute id="gebrek_paragraaf_nummer" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="gebrek_paragraaf_nummer"/>
+      <keyMapping columnObjectName="calc_columns" columnName="gebrek_paragraaf_nummer"/>
+    </attribute>
+    <attribute id="gebrek_artikel_nummer" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="gebrek_artikel_nummer"/>
+      <keyMapping columnObjectName="calc_columns" columnName="gebrek_artikel_nummer"/>
+    </attribute>
+    <attribute id="gebrek" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="gebrek_omschrijving"/>
+      <keyMapping columnObjectName="calc_columns" columnName="gebrek_omschrijving"/>
+    </attribute>
+    <attribute id="valid_from" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="valid_from"/>
+      <keyMapping columnObjectName="calc_columns" columnName="valid_from"/>
+    </attribute>
+    <attribute id="valid_to" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="valid_to"/>
+      <keyMapping columnObjectName="calc_columns" columnName="valid_to"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="gebreken" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="322"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="calc_columns" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
