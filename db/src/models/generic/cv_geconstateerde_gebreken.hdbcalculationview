@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_geconstateerde_gebreken" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" outputViewType="Projection">
+<descriptions defaultDescription="cv_geconstateerde_gebreken.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GECONSTATEERDE_GEBREKEN">
+    <resourceUri>GECONSTATEERDE_GEBREKEN</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="geconstateerde_gebreken">
+    <viewAttributes>
+      <viewAttribute id="kenteken"/>
+      <viewAttribute id="soort_erkennings_keuringsinstantie"/>
+      <viewAttribute id="melddatum"/>
+      <viewAttribute id="meldtijd"/>
+      <viewAttribute id="gebrek_identificatie"/>
+      <viewAttribute id="soort_erkennings_keuringsinstantie_omschrijving"/>
+      <viewAttribute id="aantal_gebreken"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GECONSTATEERDE_GEBREKEN"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="geconstateerde_gebreken">
+  <attributes>
+    <attribute id="kenteken" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="kenteken"/>
+      <keyMapping columnObjectName="geconstateerde_gebreken" columnName="kenteken"/>
+    </attribute>
+    <attribute id="soort_erkennings_keuringsinstantie" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="soort_erkennings_keuringsinstantie"/>
+      <keyMapping columnObjectName="geconstateerde_gebreken" columnName="soort_erkennings_keuringsinstantie"/>
+    </attribute>
+    <attribute id="melddatum" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="melddatum"/>
+      <keyMapping columnObjectName="geconstateerde_gebreken" columnName="melddatum"/>
+    </attribute>
+    <attribute id="meldtijd" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="meldtijd"/>
+      <keyMapping columnObjectName="geconstateerde_gebreken" columnName="meldtijd"/>
+    </attribute>
+    <attribute id="gebrek_identificatie" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="gebrek_identificatie"/>
+      <keyMapping columnObjectName="geconstateerde_gebreken" columnName="gebrek_identificatie"/>
+    </attribute>
+    <attribute id="soort_erkennings_keuringsinstantie_omschrijving" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="soort_erkennings_keuringsinstantie_omschrijving"/>
+      <keyMapping columnObjectName="geconstateerde_gebreken" columnName="soort_erkennings_keuringsinstantie_omschrijving"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="aantal_gebreken" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="aantal_gebreken"/>
+      <measureMapping columnObjectName="geconstateerde_gebreken" columnName="aantal_gebreken"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="geconstateerde_gebreken" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

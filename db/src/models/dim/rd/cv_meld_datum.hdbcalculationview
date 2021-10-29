@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_meld_datum" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="meld_datum.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="cv_date">
+    <resourceUri>cv_date</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="date">
+    <viewAttributes>
+      <viewAttribute id="timestamp"/>
+      <viewAttribute id="date"/>
+      <viewAttribute id="dats"/>
+      <viewAttribute id="year"/>
+      <viewAttribute id="quarter"/>
+      <viewAttribute id="month"/>
+      <viewAttribute id="week"/>
+      <viewAttribute id="year_of_week"/>
+      <viewAttribute id="day_of_week"/>
+      <viewAttribute id="day"/>
+      <viewAttribute id="year_quarter"/>
+      <viewAttribute id="year_month"/>
+      <viewAttribute id="year_week"/>
+      <viewAttribute id="is_last_day_of_month"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cv_date"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="date">
+  <attributes>
+    <attribute id="timestamp" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATETIMESTAMP"/>
+      <keyMapping columnObjectName="date" columnName="timestamp"/>
+    </attribute>
+    <attribute id="date" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SQL"/>
+      <keyMapping columnObjectName="date" columnName="date"/>
+    </attribute>
+    <attribute id="dats" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SAP"/>
+      <keyMapping columnObjectName="date" columnName="dats"/>
+    </attribute>
+    <attribute id="year" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="date" columnName="year"/>
+    </attribute>
+    <attribute id="quarter" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER"/>
+      <keyMapping columnObjectName="date" columnName="quarter"/>
+    </attribute>
+    <attribute id="month" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH"/>
+      <keyMapping columnObjectName="date" columnName="month"/>
+    </attribute>
+    <attribute id="week" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK"/>
+      <keyMapping columnObjectName="date" columnName="week"/>
+    </attribute>
+    <attribute id="year_of_week" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR"/>
+      <keyMapping columnObjectName="date" columnName="year_of_week"/>
+    </attribute>
+    <attribute id="day_of_week" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK"/>
+      <keyMapping columnObjectName="date" columnName="day_of_week"/>
+    </attribute>
+    <attribute id="day" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="date" columnName="day"/>
+    </attribute>
+    <attribute id="year_quarter" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALQUARTER"/>
+      <keyMapping columnObjectName="date" columnName="year_quarter"/>
+    </attribute>
+    <attribute id="year_month" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALMONTH"/>
+      <keyMapping columnObjectName="date" columnName="year_month"/>
+    </attribute>
+    <attribute id="year_week" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALWEEK"/>
+      <keyMapping columnObjectName="date" columnName="year_week"/>
+    </attribute>
+    <attribute id="is_last_day_of_month" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH_LAST_DAY"/>
+      <keyMapping columnObjectName="date" columnName="is_last_day_of_month"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="date" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
